@@ -1,0 +1,1 @@
+INTEGRATION_ENDPOINT="https://integrator-api.daikinskyport.com"
