@@ -13,7 +13,7 @@ def getAll(session: Session):
     return session.get(_endpoint)
 
 
-def get(session: Session, id):
+def get(session: Session, id: str):
     return session.get(_endpoint + '/' + id)
 
 

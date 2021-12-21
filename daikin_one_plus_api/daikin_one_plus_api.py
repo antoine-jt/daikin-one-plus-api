@@ -2,11 +2,12 @@ import logging
 
 from requests.sessions import Session
 from daikin_one_plus_api.http import auth
+from daikin_one_plus_api.http import device
 
 class DaikinOnePlusApi():
 
     _logger = logging.getLogger('daikin_one_plus_api.daikin_one_api')
-    _session: Session = None;
+    _session: Session = None
 
     def __init__(self, email, apiKey, integratorToken):
         self._email = email
@@ -27,5 +28,9 @@ class DaikinOnePlusApi():
 
 
     def getDevices(self):
-        self.__validateSession(self._session);
-        return []
+        self.__validateSession(self._session)
+        return device.getAll(self._session)
+
+    def getDevice(self, id: str):
+        self.__validateSession(self._session)
+        return device.get(self._session, id)
